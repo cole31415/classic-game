@@ -1,11 +1,14 @@
 import React from "react";
-import Admin from "./pages/admin/Admin";
 import { Route, Switch, HashRouter } from "react-router-dom";
-import GoBang from "./pages/gobang/GoBang";
-import GreedySnake from "./pages/greedy-snake/GreedySnake";
-import Tetris from "./pages/tetris/Tetris";
-import Lian2Kan from "./pages/lian2kan/Lian2Kan";
-import Sokoban from "./pages/sokoban/Sokoban";
+/*====== 引入分片式懒路由加载 =====*/
+import { lazyLoad } from "./utils/loadable";
+const Admin = lazyLoad(() => import("./pages/admin/Admin"));
+const GoBang = lazyLoad(() => import("./pages/gobang/GoBang"));
+const GreedySnake = lazyLoad(() => import("./pages/greedy-snake/GreedySnake"));
+const Tetris = lazyLoad(() => import("./pages/tetris/Tetris"));
+const Lian2Kan = lazyLoad(() => import("./pages/lian2kan/Lian2Kan"));
+const Sokoban = lazyLoad(() => import("./pages/sokoban/Sokoban"));
+/*====== 引入分片式懒路由加载 =====*/
 
 const App = () => {
   return (
