@@ -1,8 +1,12 @@
 import React from 'react';
+import HeadNav from '../../components/headNav';
 
 const Sokoban = () => {
   return (
-    <div>推箱子</div>
+    <div>
+      <HeadNav />
+      <div>推箱子</div>
+    </div>
   )
 }
 

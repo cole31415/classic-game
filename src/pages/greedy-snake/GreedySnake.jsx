@@ -1,8 +1,12 @@
 import React from 'react';
+import HeadNav from '../../components/headNav';
 
 const GreedySnake = () => {
   return (
-    <div>贪吃蛇</div>
+    <div>
+      <HeadNav />
+      <div>无敌贪吃蛇</div>
+    </div>
   )
 }
 

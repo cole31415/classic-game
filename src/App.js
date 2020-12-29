@@ -8,7 +8,6 @@ const GreedySnake = lazyLoad(() => import("./pages/greedy-snake/GreedySnake"));
 const Tetris = lazyLoad(() => import("./pages/tetris/Tetris"));
 const Lian2Kan = lazyLoad(() => import("./pages/lian2kan/Lian2Kan"));
 const Sokoban = lazyLoad(() => import("./pages/sokoban/Sokoban"));
-/*====== 引入分片式懒路由加载 =====*/
 
 const App = () => {
   return (
