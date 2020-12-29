@@ -7,7 +7,12 @@ const GoBang = () => {
     const initialBoard = () => {
       let chess = document.getElementById("chess");
       let context = chess.getContext("2d");
-      context.strokeStyle = "#bfbfbf"; // 设置线颜色
+      /*设置线颜色*/
+      context.strokeStyle = "#bfbfbf";
+      /*添加背景颜色*/
+      context.fillStyle = "grey";
+      context.fillRect(0, 0, 450, 450);
+      /*绘制棋盘*/
       let drawChess = function () {
         for (let i = 0; i < 15; i++) {
           /*=== 竖线 ===*/
@@ -20,10 +25,31 @@ const GoBang = () => {
           context.stroke();
         }
       };
-      /*添加背景颜色*/
-      context.fillStyle = "#000";
-      context.fillRect(0, 0, 450, 450);
       drawChess();
+      /*绘制棋子*/
+      let oneStep = function (i, j, me) {
+        context.beginPath();
+        context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI);
+        context.closePath();
+        /*渐变*/
+        let gradient = context.createRadialGradient(
+          15 + i * 30 + 2,
+          15 + j * 30 - 2,
+          13,
+          15 + i * 30,
+          15 + j * 30,
+          0
+        );
+        if(me) {
+          gradient.addColorStop(0, "#0a0a0a");
+          gradient.addColorStop(1, "#636765");
+        } else {
+          gradient.addColorStop(0, "#d1d1d1");
+          gradient.addColorStop(1, "#f9f9f9");
+        }
+        context.fillStyle = gradient;
+        context.fll();
+      };
     };
     initialBoard();
   }, []);
