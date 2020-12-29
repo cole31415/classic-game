@@ -50,6 +50,31 @@ const GoBang = () => {
         context.fillStyle = gradient;
         context.fll();
       };
+      /*棋子落下事件*/
+      let arr = [];
+      let chessBoard = [];
+      for(let i=0;i<15;i++) {
+        arr[i] = [];
+        for(let j=0;j<15;j++) {
+          arr[i][j] = 0;
+        }
+      }
+      let me = true;
+      chess.onclick = function(e) {
+        let x = e.offsetX;
+        let y = e.offsetY;
+        let i = Math.floor(x/30);
+        let j = Math.floor(y/30);
+        if(chessBoard[i][j] == 0) {
+          oneStep(i,j,me);
+          if(me) {
+            chessBoard[i][j] = 1;
+          } else {
+            chessBoard[i][j] = 2;
+          }
+          me = !me;
+        }
+      };
     };
     initialBoard();
   }, []);
